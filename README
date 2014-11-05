@@ -7,6 +7,6 @@ This project will cover the functionality of any common web mail client. The cli
 Technological Specifications 
 =================================
 
-The project will be using CodeIgniter for the server framework and Angular.js for the client framwork.
+The project will be using Python for the server framework and Angular.js for the client framework.
 The project will use mySQL or similar SQL-type server data storage.
 The project will probably use Oauth for the authentication process for the webpage, it would, however, be fun to see if the webpage could integrate with live gmail-accounts, or similar. The main goal is though to have our own system for emailing.
