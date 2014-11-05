@@ -1,0 +1,29 @@
+
+    <!-- JS -->
+    <!-- load angular, ngRoute, ngAnimate -->
+    <script src="https://apis.google.com/js/client.js"></script>
+
+    <!-- Place this asynchronous JavaScript just before your </body> tag -->
+    <script type="text/javascript">
+      (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/client:plusone.js?onload=onLoadCallback';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+     })();
+    </script>
+<body>
+{%if loggedOut%} 
+
+<script type="text/javascript">
+
+    function onLoadCallback(){
+    	gapi.auth.signOut();
+    	window.location = "/";
+    	console.log("yesss");
+  };
+</script>
+<h1>You are being logged out.</h1>
+
+{%endif%}
+
+</body>

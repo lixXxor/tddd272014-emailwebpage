@@ -1,0 +1,252 @@
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+body{
+	/*background-color:#F7F7F7;*/
+	vertical-align: baseline;
+	line-height: 1;
+	font-family: "Myriad Pro", futura-pt, proxima-nova;
+}
+
+/*p{
+	color: #515151;
+}
+*/
+
+#signinButton{
+	text-align: center;
+	margin-top: 200px;
+}
+
+#topbar{
+	width:100%;
+	height:70px;
+	position: fixed;
+	display: flex;
+	z-index: 1;
+	background: #EEE;
+	padding-top: 30px;
+}
+
+
+.left_top{
+	width: 15%;
+	height: 100%;
+	text-align: center;
+}
+
+.left_top p{
+	color: white;
+	cursor: hand;
+
+}
+
+
+.center_top{
+	margin-left: 15%;
+	width: 700px;
+	height: 100%;
+	text-align: left;
+}
+
+.center_top button{
+	margin-right: 20px;
+	font-size: 13px;
+	color: #444;
+	background-color: #EEE;
+	border-style: none;
+	outline: none !important;
+}
+
+.right_top{
+	width: 350px;
+	height: 100%;
+	text-align: center;
+}
+
+.right_top p{
+	color:white;
+}
+
+#googlePlusPic {
+	margin-top: -30px;
+}
+
+#container{
+	display: flex;
+	width:100%;
+	height:100%;
+}
+
+#left_menu{
+	width: 15%;
+	padding-top: 70px;
+	position: fixed;
+	height: 100%;
+	border-right: 1px dotted #EEE; 
+	overflow: auto;
+}
+
+.left_menu_email{
+	height: 75px;
+	width:	100%;
+	border-bottom: 1px dotted #EEE;
+	cursor: pointer;
+	background-color: white;
+	-webkit-transition: background-color 0.5s ease-out;
+	-moz-transition: background-color 0.5s ease-out;
+  	-o-transition: background-color 0.5s ease-out;
+  	transition: background-color 0.5s ease-out;
+}
+
+.left_menu_email p{
+	font-size: 13px;
+	padding-top: 10px;
+	padding-left: 10px;
+	color: #BBB;
+	-webkit-transition: color 0.5s ease-out;
+	-moz-transition: color 0.5s ease-out;
+  	-o-transition: color 0.5s ease-out;
+  	transition: color 0.5s ease-out;
+}
+
+.left_menu_email p:hover{
+	color: #444;
+	-webkit-transition:	color 0.5s ease-out;
+	-moz-transition: color 0.5s ease-out;
+  	-o-transition: color 0.5s ease-out;
+  	transition: color 0.5s ease-out;
+}
+
+
+.left_menu_email:hover{
+	background-color: #EEE;
+	-webkit-transition:	background-color 0.8s ease-out;
+	-moz-transition: background-color 0.8s ease-out;
+  	-o-transition: background-color 0.8s ease-out;
+  	transition: background-color 0.8s ease-out;
+}
+
+
+#email{
+	padding-left: 30%
+}
+
+.email_title{
+	width:700px;
+	margin-top: 150px;
+	text-align: left;
+	font-size: 30px;
+}
+
+.email_sender{
+	width:700px;
+	margin-top: 30px;
+	text-align: left;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.email_text{
+	width:700px;
+	margin-top: 20px;
+	margin-bottom: 200px;
+	font-size: 22px;
+	line-height: 32px;  		
+}
+
+.search{
+	text-align: center;
+	background-color: #EEE;
+}
+
+
+#replyHeader{
+	width: 100%;
+	height: 110px;
+	display: flex;
+	background-color: #EEE;
+
+}
+
+.replyHeaderLeft{
+	padding-top: 35px;
+	padding-left: 150px;
+}
+
+.replyHeaderLeft input{
+	background-color: #EEE;
+	width: 500px;
+}
+
+.replyHeaderRight button{
+	font-size: 13px;
+	padding-right: 10px;
+	background-color: #EEE;
+	border-style: none;
+	outline: none !important;
+}
+
+.replyHeaderRight{	
+	padding-top: 35px;
+	text-align: left;
+	margin-left: 100px;
+	/*background: #EEE;
+	font-size: 13px;*/
+}
+
+#replyBody{
+	margin-top: 50px;
+}
+
+.replySubject{
+	padding-left: 150px;
+	padding-right: 150px;
+	text-align: left;
+	font-size: 30px;
+}
+
+.replySubject input{
+	width: 500px;
+}
+
+.replyMessage{
+	padding-left: 150px;
+	padding-right: 150px;
+	font-size: 22px;
+	line-height: 32px; 
+}
+
+
+textarea{
+	width: 100%;
+	height: 200px;
+	border-style: none;
+	outline: none !important;
+}
+
+input{
+	border-style: none;
+	border-color: transparent;
+	outline: none !important;
+}
+
+button{
+	border-style: none;
+	outline: none !important;
+}
+
+
+.modal-content {
+    width: 1000px;
+    margin-left: -200px;
+    margin-top: -35px;
+}
+
+/*#replyFooter{
+	padding-left: 150px;
+	padding-right: 150px;
+}*/
+

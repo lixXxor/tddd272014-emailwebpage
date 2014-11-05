@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% load staticfiles %}
+
+<html>
+<head>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static "emailclient/styles/bootstrap-3.1.1-dist/css/bootstrap.min.css" %}">
+	<link rel="stylesheet" href="{% static "emailclient/styles/animation.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "emailclient/styles/mystyle.css" %}">
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<!-- JS -->
+	<!-- load angular, ngRoute, ngAnimate -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://apis.google.com/js/client:plusone.js"></script>
+	<script src="{% static "emailclient/scripts/angularJS/angular.js" %}"></script>
+	<script src="{% static "emailclient/scripts/angularJS/angular-route.js" %}"></script>
+	<script src="{% static "emailclient/scripts/angularJS/angular-animate.js" %}"></script>
+	<script src="{% static "emailclient/scripts/angularJS/angular-sanitize.js" %}"></script>
+	<script src="{% static "emailclient/scripts/ui-bootstrap-tpls-0.11.0.min.js" %}"></script>
+	<script src="{% static "emailclient/scripts/myScript.js" %}"></script>
+</head>
+<script type="text/javascript">
+(function() {
+  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+  po.src = 'https://apis.google.com/js/client:plusone.js?onload=onLoadCallback';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+
+function onLoadCallback(){
+	gapi.client.setApiKey("AIzaSyBtGE72zvu0YNKctjGwM_FQW3bIGv7DMwE");
+	gapi.client.load('plus','v1', function(){
+				 var request = gapi.client.plus.people.get({
+				   'userId': token.user_id
+				 });
+				 console.log(request);
+				 request.execute(function(resp) {
+				   	var heading = document.createElement('h4');
+		            var image = document.createElement('img');
+		            image.src = resp.image.url;
+		            heading.appendChild(image);    
+		            image.id = "googlePlusPic";
+		            // heading.appendChild(document.createTextNode(resp.displayName));
+
+		            document.getElementById('profilePic').appendChild(heading);
+		            // document.getElementsByClassName('btn btn-primary dropdown-toggle')[0].styles.background-color=black;
+
+				 });
+				});
+	
+}
+</script>
+<!-- apply our angular app -->
+	<body ng-app="animateApp">
+
+		<script type="text/javascript">
+			var json = {{token|safe}};
+			console.log(json);
+			var token = JSON.parse(json);
+			var clientId = '{{plus_id|safe}}';
+			var scope = '{{plus_scope|safe}}';
+			var emailArray = [];
+			var lastEmailJson = {{ last_email|safe }};
+			for (var i = lastEmailJson.length - 1; i >= 0; i--) {
+				var lastSubject = lastEmailJson[i][0];
+				var lastSender = lastEmailJson[i][1][2]+"@"+lastEmailJson[i][1][3];
+				var lastBody = lastEmailJson[i][2];
+				var lastHtml = lastEmailJson[i][3];
+				var lastDate = lastEmailJson[i][4];
+				var email = {
+					subject : lastSubject,
+					sender : lastSender,
+					body : lastBody,
+					html : lastHtml,
+					date : lastDate
+				};
+			emailArray.push(email);
+			};
+			console.log(emailArray);
+		</script>
+		
+
+	    <!-- inject our views using ng-view -->
+		<!-- each angular controller applies a different class here -->
+		{% verbatim %}
+		<div class="page {{ pageClass }}" ng-view></div>
+		{% endverbatim %}
+	</body>
+</html>

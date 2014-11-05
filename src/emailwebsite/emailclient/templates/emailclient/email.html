@@ -1,0 +1,88 @@
+<body>
+
+	<div id="topbar">
+		
+		<div class="left_top">
+		
+		<input class="search" type="test" ng-model="searchMail" placeholder="search"/>
+  	
+		</div>
+		<div class="center_top">
+				{% verbatim %}
+		<div ng-controller="replyController">
+			    <script type="text/ng-template" id="myModalContent.html">
+			       
+
+			 			<div id="replyHeader">
+
+							<div class="replyHeaderLeft">
+							<input type="text" ng-model="yourSender" placeholder="TO"/><br>
+							<input type="text" ng-model="yourCC" placeholder="CC"><br>
+							<input type="text" ng-model="yourBCC" placeholder="BCC"><br><br>
+							</div>
+
+
+							<div class="replyHeaderRight">
+							<button ng-click="ok(yourSubject, yourSender, yourMessage)">Send</button>
+			            	<button ng-click="cancel()">Attachfile</button>
+			            	</div>
+						</div>
+					
+
+							<div id="replyBody">
+							<input class="replySubject" type="text" ng-model="yourSubject" placeholder="Title"/><br>
+							<textarea class="replyMessage" ng-model="yourMessage" placeholder="Message" autofocus="autofocus"></textarea>
+							</div>
+					
+			    </script>
+
+			    <button ng-click="open(currentSubject, currentSender, currentMessage, currentTime)">Send</button>
+			    <button ng-click="open(currentSubject, currentSender, currentMessage, currentTime)">Reply</button>
+			   	<div ng-show="selected">Selection from a modal: {{ selected }}</div>
+			   	<button href="#test">Reply All</button>
+			   	<button>Forward</button>
+			   	<button>Delete</button>
+
+			</div>
+			{% endverbatim %}
+		</div>
+		
+		
+			<div class="right_top">
+			        <div id="profilePic"></div>
+			</div>     
+		
+	</div>
+
+
+	<!-- container -->
+	<div ng-controller="mailController">
+	<div id="container">
+		
+		<!-- left menu -->
+		{% verbatim %}
+			<div id="left_menu" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
+				<button class="left_menu_email" ng-repeat="emails in emailList | filter:searchMail"  ng-click="openMail(emails.subject, emails.sender, emails.html, emails.body, emails.date)">
+					<p>{{ emails.subject }}<br>
+					{{ emails.sender }}<br>
+					{{ emails.date }}</p>
+				</button>
+			
+			</div>
+		
+
+		<!-- email -->
+		<div id="email">
+			<div class="email_title" > 
+				<h1>{{ mailSubject }}</h1>
+			</div>
+			<div class="email_sender">
+				<h2>{{ mailSender }}</h2>						
+			</div>
+			<div class="email_text" ng-bind-html="mailMessage">
+			</div>
+		</div>
+		{% endverbatim %}
+	</div>
+	</div>
+</body>

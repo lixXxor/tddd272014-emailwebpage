@@ -1,0 +1,12 @@
+TDDB27 Project Specifications 
+=================================
+Functional Specifications 
+=================================
+This project will cover the functionality of any common web mail client. The client will cover mail writing, receiving and sending from a client mail account. The client will include design functionalities such as row-highlighting and customization. 
+
+Technological Specifications 
+=================================
+
+The project will be using CodeIgniter for the server framework and Angular.js for the client framwork.
+The project will use mySQL or similar SQL-type server data storage.
+The project will probably use Oauth for the authentication process for the webpage, it would, however, be fun to see if the webpage could integrate with live gmail-accounts, or similar. The main goal is though to have our own system for emailing.

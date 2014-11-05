@@ -1,0 +1,24 @@
+<div id="login">
+		<form id="logon">
+			<p>{{ user.username }} </p>
+			<input type="text" ng-model="yourName" placeholder="To"/>
+			<input type="password" ng-model="yourPassword" placeholder="Subject"/>
+			<p>{{ yourName }}</p>
+			<input type="text" ng-model="yourMessage" placeholder="Message">
+			<p><a href="#//" class="btn btn-success btn-lg"> Send </a></p>
+		</form>
+
+		<div>
+			
+	    	<hr>
+			{% verbatim %}
+	    	<h1></h1>
+	 	    <h1>{{ yourName }}!</h1>
+	    	<h1>Hello{{ yourPassword }}</h1>	
+	    	<h1>{{ yourMessage }}</h1>
+	    	{% endverbatim %}
+	    </div>
+
+	</div>
+
+

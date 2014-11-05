@@ -1,0 +1,92 @@
+/* BASE STYLES
+============================================================================= */
+
+/*.page {
+  bottom:0; 
+  position:absolute; 
+  top:0;  
+  width:100%; 
+}*/
+
+.send {
+  z-index: 9999;
+}
+
+.email {
+  z-index: 2;
+}
+
+/*email-------------------*/
+
+.email.ng-enter    {  
+  -webkit-animation:fadeIn 0.3s both ease-in;
+  -moz-animation:fadeIn 0.3s both ease-in;
+  animation:fadeIn 0.3s both ease-in;     
+}
+
+.test.ng-enter    {  
+  -webkit-animation:fadeIn 0.3s both ease-in;
+  -moz-animation:fadeIn 0.3s both ease-in;
+  animation:fadeIn 0.3s both ease-in;     
+}
+
+/*send sidan--------------*/
+.send.ng-leave        {
+  -webkit-animation:slideOutDown 0.3s both ease-in;
+  -moz-animation:slideOutDown 0.3 both ease-in;
+  anmation:slideOutDown 0.3s both ease-in;
+}
+.send.ng-enter    {  
+  -webkit-animation:slideInUp 0.2s both ease-in;
+  -moz-animation:slideInUp 0.2s both ease-in;
+  animation:slideInUp 0.2s both ease-in;     
+}
+
+
+/* scale up */
+@keyframes fadeIn {
+  from    { opacity: 0.2; }
+}
+@-moz-keyframes fadeIn {
+  from    { opacity: 0.2; }
+}
+@-webkit-keyframes fadeIn {
+  from    { opacity: 0.2; }
+}
+
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+  from  { transform:translateY(100%); }
+  to    { transform: translateY(0); }
+}
+@-moz-keyframes slideInUp {
+  from  { -moz-transform:translateY(100%); }
+  to    { -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInUp {
+  from  { -webkit-transform:translateY(100%); }
+  to    { -webkit-transform: translateY(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutDown {
+  to    { transform: translateY(-100%); }
+}
+@-moz-keyframes slideOutDown {  
+  to    { -moz-transform: translateY(-100%); }
+}
+@-webkit-keyframes slideOutDown {
+  to    { -webkit-transform: translateY(-100%); }
+}
+
+/* rotate out newspaper */
+@-webkit-keyframes rotateOutNewspaper {
+  to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@-moz-keyframes rotateOutNewspaper {
+  to { -moz-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@keyframes rotateOutNewspaper {
+  to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}

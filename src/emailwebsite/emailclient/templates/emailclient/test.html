@@ -1,0 +1,124 @@
+        <!---
+        MIKPES LILLA MYSTEST
+            <p>You are logged in as {{ user.email }} {{ user.password }}! (<a href="logout">Logout</a>) 
+
+                <input type="text" value="8" id="to" />
+                <input type="text" value="8" id="subject" />
+                <input type="textfield" value="8" id="message"/>
+                <input type="submit" class="btn" value="SPAMMA GUSZA" id="sendMail" />
+
+            </p>
+                        <script type="text/javascript">
+            console.log(token.user_id);
+            $("#sendMail").click( function() {
+                $.get("sendMail", {to: $("#to").attr('value'), 
+                        subject: $("#subject").attr('value'), 
+                        message: $("#message").attr('value')}, function (arg) {
+                   // console.log(arg);
+                });
+            });
+            </script>
+                -->
+            
+<body>
+
+    <div id="topbar">
+        
+        <div class="left_top">
+
+        <input class="search" type="test" ng-model="hej" placeholder="search"/>     
+        </div>
+        <div class="center_top">
+                {% verbatim %}
+        <div ng-controller="replyController">
+                <script type="text/ng-template" id="myModalContent.html">
+                   
+                    <div class="modal-header">
+                        <h3 class="modal-title"></h3>
+                        <form id="reply">
+                            <input type="text" ng-model="yourSubject" placeholder="{{ currentSubject }}"/><br><br>
+                            <input type="text" ng-model="yourSender" placeholder="{{ currentSender }}"/><br><br>
+                            <input type="text" ng-model="yourMessage" placeholder="CC"><br><br>
+                            <!--<p>{{ currentTime }}</p><br><br>-->
+                            <textarea placeholder="Message" autofocus="autofocus"></textarea>
+                        </form>   
+                    </div>
+                    
+                    <div class="modal-body">
+                        
+                                <a class="btn btn-default" ng-click="meddelandet = currentSubject + currentSender + currentMessage + currentTime">Visa mer</a><br><br>
+                                
+                                    {{ meddelandet }}
+                               
+                    </div>
+                   
+                    <div class="modal-footer">
+                        <button class="btn btn-default" ng-click="ok()">Reply</button>
+                        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+                    </div>
+                </script>
+
+                <button ng-click="open('lg', currentSubject, currentSender, currentMessage, currentTime)">Reply</button>
+                <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+                <input type="text" ng-model="yourSubject" placeholder="{{ currentSubject }}"/>
+                <input type="text" ng-model="yourSender" placeholder="{{ currentSender }}"/>
+                <button>Delete</button>
+
+            </div>
+            {% endverbatim %}
+        </div>
+        
+        {% verbatim %}
+        <div ng-controller="dropdownController">
+            <div class="right_top">
+            <!-- testKnapp -->
+                <div class="btn-group" dropdown is-open="status.isopen">
+                  <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+                    <div id="profilePic"></div> <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href ="#test">Logout</a></li>
+                    <li><a href="#">Settings</a></li>
+                  </ul>
+                </div>
+            </div>      
+        </div> 
+        {% endverbatim %}               
+
+    </div>
+
+
+    <!-- container -->
+    <div ng-controller="mailController">
+    <div id="container">
+        
+
+        <!-- left menu -->
+        {% verbatim %}
+            <div id="left_menu" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
+                
+                <button class="left_menu_email" ng-repeat="n in [] | range:20"  ng-click="openMail(currentSubject, currentSender, currentMessage, currentTime)">
+                    <p>{{ currentSubject }}<br>
+                    {{ currentSender }}<br>
+                    {{ currentTime }}</p>
+                </button>
+            
+            </div>
+        
+
+        <!-- email -->
+        <div id="email">
+            <div class="email_title" > 
+                <h1>{{ mailSubject }}</h1>
+            </div>
+            <div class="email_sender">
+                <h2>{{ mailSender }}</h2>                       
+            </div>
+            <div class="email_text">
+                <p>{{ mailMessage }}</p>
+            </div>
+        </div>
+        {% endverbatim %}
+    </div>
+    </div>
+</body>
